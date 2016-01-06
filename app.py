@@ -4,7 +4,8 @@ from flask import render_template
 from flask import request
 
 
-from esperanto import look_up
+import crud
+
 
 
 app = Flask(__name__)
@@ -16,9 +17,10 @@ def index():
 
 @app.route("/search", methods=["POST", "GET"])
 def search():
-    query = request.form['query']
-    result = look_up(query)
-    return render_template("entry.html", word=result.word, entry=result.entry)
+    result = crud.look_up(request.form['query'])
+    if result == None:
+        return render_template("entry_not_found.html")
+    return render_template("entry.html", word=result.word, part_of_speech=result.part_of_speech, entry=result.definition)
 
 
 if __name__ == '__main__':

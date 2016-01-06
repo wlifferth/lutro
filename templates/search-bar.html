@@ -1,0 +1,16 @@
+{% macro get_search_bar() %}
+<div class="window">
+  <form action="{{ url_for('search') }}" method="post" name="search-form">
+    <div ><input type="text" id="search-bar" name="query" autofocus placeholder="Search" value="{{ keyphrase }}"/></div>
+    <input class="half-window responsive" type="submit" value="submit" style="display: none" name="submit-query" />
+  </form>
+  <div class="character-inserts">
+    <button class="character-insert" onclick="insertChar('ĉ')">ĉ</button>
+    <button class="character-insert" onclick="insertChar('ĝ')">ĝ</button>
+    <button class="character-insert" onclick="insertChar('ĥ')">ĥ</button>
+    <button class="character-insert" onclick="insertChar('ĵ')">ĵ</button>
+    <button class="character-insert" onclick="insertChar('ŝ')">ŝ</button>
+    <button class="character-insert" onclick="insertChar('ŭ')">ŭ</button>
+  </div>
+</div>
+{% endmacro %}

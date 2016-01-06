@@ -1,7 +1,8 @@
 /*
 ========================================================
 Normalize
-========================================================*/
+========================================================
+*/
 @import url("normalize.css");
 
 body {
@@ -32,6 +33,7 @@ header img {
 
 .word {
   font-size: 64;
+  display: inline;
 }
 
 .entry {
@@ -58,4 +60,19 @@ input {
   background-color: #10d35c;
   color: white;
   //border-radius: 30px;
+}
+
+.part_of_speech {
+  font-size: 24;
+  display: inline;
+}
+
+.character-insert {
+  border-style: solid;
+  border-color: #bbb;
+  border-radius: 100px;
+  background-color: inherit;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 10px;
 }
