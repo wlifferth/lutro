@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase("esp-eng-dictionary.db")
+db = SqliteDatabase("lutro.db")
 
 
 class Entry(Model):
