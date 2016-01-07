@@ -8,6 +8,7 @@ class Entry(Model):
     word = CharField(unique=True)
     part_of_speech = CharField(null=True)
     definition = TextField()
+
     class Meta:
         database = db
 

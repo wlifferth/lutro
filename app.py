@@ -19,7 +19,7 @@ def index():
 def search():
     result = crud.look_up(request.form['query'])
     if result == None:
-        return render_template("entry_not_found.html")
+        return render_template("entry_not_found.html", word=request.form['query'])
     return render_template("entry.html", word=result.word, part_of_speech=result.part_of_speech, entry=result.definition)
 
 
