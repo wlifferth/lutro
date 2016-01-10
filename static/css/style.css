@@ -17,6 +17,7 @@ General
 body {
   font-family: 'Lora', serif;
   background-color: #99ccff;
+  overflow-x: hidden;
 }
 
 a:link {
@@ -56,10 +57,12 @@ header img {
 }
 
 #otter {
-  width: 40vw;
+  width: 200px;
   position: absolute;
   bottom: -10px;
-  right: 10px;
+  right: -200px;
+  -webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
+   transform: rotate(-15deg);
 }
 
 
@@ -80,6 +83,8 @@ Search/Results
 }
 
 input {
+  color: white;
+  font-weight: bold;
   border-style: none;
   font-size: 24;
   background-color: inherit;
