@@ -5,6 +5,11 @@ function insertChar(char)
     return document.getElementById("search-bar").value;
 }
 
+function updateURL(query)
+{
+  document.getElementById("search-form").action = "/search/" + query;
+}
+
 function otterSwim()
 {
   otter = document.getElementById("otter");
