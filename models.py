@@ -12,9 +12,12 @@ class Entry(Model):
     class Meta:
         database = db
 
+class EnglishEntry(Entry):
+    pass
+
 class EsperantoEntry(Entry):
     pass
 
 def init_db():
     db.connect
-    db.create_tables([EsperantoEntry], safe=True)
+    db.create_tables([EsperantoEntry, EnglishEntry], safe=True)
