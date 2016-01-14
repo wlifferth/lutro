@@ -1,0 +1,37 @@
+{% from 'search-bar.html' import get_search_bar %}
+{% extends "base.html" %}
+{% block content %}
+{{ get_search_bar() }}
+<div class="entry window">
+  <section id="lang_spec">
+    <div id="lang_spec_esp_to_eng" class="selected-lang-spec" onclick="switchLangs('esp')">
+      Esperanto => Engish
+    </div>
+    <div id="lang_spec_eng_to_esp" class="unselected-lang-spec" onclick="switchLangs('eng')">
+      English => Esperanto
+    </div>
+  </section>
+  <section id="esperanto_to_english" class="selected-lang">
+    <div class="word">
+      {{ esp_word }}
+    </div>
+    <div class="part_of_speech">
+      {{ esp_part_of_speech }}
+    </div>
+    <div class="definition">
+      {{ esp_entry }}
+    </div>
+  </section>
+  <section id="english_to_esperanto" class="unselected-lang">
+    <div class="word">
+      {{ eng_word }}
+    </div>
+    <div class="part_of_speech">
+      {{ eng_part_of_speech }}
+    </div>
+    <div class="definition">
+      {{ eng_entry }}
+    </div>
+  </section>
+</div>
+{% endblock %}

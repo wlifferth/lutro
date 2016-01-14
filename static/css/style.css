@@ -90,6 +90,44 @@ input {
   background-color: inherit;
 }
 
+#lang_spec_esp_to_eng, #lang_spec_eng_to_esp {
+  font-weight: bold;
+  font-size: 20;
+  text-align: center;
+  color: #aaaaaa;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  width: 45%;
+  display: inline-block;
+  margin-top: -10px;
+  margin-left: 5.5%;
+  margin-right: 5.5%;
+}
+
+#lang_spec_esp_to_eng {
+  margin-left: -3%;
+}
+#lang_spec_eng_to_esp {
+  margin-right: -3%;
+}
+
+.selected-lang {
+  display: block;
+}
+
+.unselected-lang {
+  display: none;
+}
+
+.selected-lang-spec {
+  background-color: white;
+}
+
+.unselected-lang-spec {
+  background-color: #eee;
+}
+
 .entry {
   -webkit-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.2);

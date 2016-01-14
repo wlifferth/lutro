@@ -10,6 +10,22 @@ function updateURL(query)
   document.getElementById("search-form").action = "/search/" + query;
 }
 
+function switchLangs(switch_to)
+{
+  if (switch_to == 'esp') {
+    document.getElementById('english_to_esperanto').className = 'unselected-lang';
+    document.getElementById('esperanto_to_english').className = 'selected-lang';
+    document.getElementById('lang_spec_esp_to_eng').className = 'selected-lang-spec';
+    document.getElementById('lang_spec_eng_to_esp').className = 'unselected-lang-spec';
+  } else {
+    document.getElementById('english_to_esperanto').className = 'selected-lang';
+    document.getElementById('esperanto_to_english').className = 'unselected-lang';
+    document.getElementById('lang_spec_esp_to_eng').className = 'unselected-lang-spec';
+    document.getElementById('lang_spec_eng_to_esp').className = 'selected-lang-spec';
+  }
+
+}
+
 function otterSwim()
 {
   otter = document.getElementById("otter");

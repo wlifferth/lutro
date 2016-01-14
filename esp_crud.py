@@ -1,4 +1,5 @@
 import models
+import log_crud
 
 """
 look_up function
@@ -44,29 +45,36 @@ def get_infinitive(word):
 insert function
 """
 
-def insert(word, definition, part_of_speech="", frequency=0, lang="esp"):
+def insert(word, definition, part_of_speech="", frequency=0):
     results = models.EsperantoEntry.select(models.EsperantoEntry.word.lower() == word.lower())
     try:
         result = results.get()
         return word + " already exists in database at location " + result.id
     except:
         new_entry = models.EsperantoEntry.create(word=word, part_of_speech=part_of_speech, definition=definition, frequency=frequency)
+        log_crud.log_change(type='esp_ins', change=(word + "\n" + part_of_speech + "\n" + definition))
         return word + " created in the database at location " + new_entry.id
 
 """
 update function
 """
 
-def update(id, definition, part_of_speech, frequency):
+def update(id, definition=None, part_of_speech=None, frequency=None):
     try:
         result = models.EsperantoEntry.get(models.EsperantoEntry.id == id)
-        result.definition = definition
-        result.part_of_speech = part_of_speech
-        result.frequency = frequency
+        old_result = result
+        if definition != None:
+            result.definition = definition
+        if part_of_speech != None:
+            result.part_of_speech = part_of_speech
+        if frequency != None:
+            result.frequency = frequency
         result.save()
+        log_crud.log_change(type='esp_upd', change=(old_result.to_string() + "\n==========\n" + result.to_string()))
         return result.word + " entry updated!"
     except:
         return "No word found at location " + str(id)
+
 
 
 """
@@ -76,6 +84,7 @@ delete function
 def delete(id):
     try:
         entry = models.EsperantoEntry.get(models.EsperantoEntry.id == id)
+        log_crud.log_change(type='esp_del', change=(entry.word + "\n" + entry.part_of_speech + "\n" + entry.definition))
         entry.delete()
         return entry.word + " was deleted from the database"
     except:
